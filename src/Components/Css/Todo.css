@@ -1,8 +1,46 @@
-.todo{
+@keyframes crazyFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%) rotate(0deg);
+    }
+    50% {
+        transform: translateY(0) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes crazyPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes crazySlideIn {
+    0% {
+        transform: translateX(-200%) scale(0.5) rotate(-45deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.todo {
     width: 600px;
     min-height: 700px;
     border-radius: 50px;
-    background: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: auto;
     margin-top: 174px;
     display: flex;
@@ -11,44 +49,46 @@
     padding-bottom: 30px;
     margin-bottom: 100px;
     padding-right: 55px;
-   
-  
-    
-    
-
+    animation: crazySlideIn 1s ease-in-out;
 }
-.todo-header{
+
+.todo-header {
     margin: 84px;
-    color:#002765;
+    color: whitesmoke;
     font-size: 36px;
     font-weight: 600;
     line-height: 34px;
     text-align: center;
-
-
-
+    animation: crazyBackgroundPulse 2s infinite;
 }
-.todo-add{
+
+.todo-add {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 45px;
 }
 
-.todo-input
-{
-  border-radius: 50px;
-  background: #edeef0;
-  border: none;
-  outline: none; 
-  width: 576px;
-  height: 80px;
-  padding: 10px;
-  font-size: 20px; 
-  padding-left: 40px;
-  
+.todo-input {
+    border-radius: 50px;
+    background: #edeef0;
+    border: none;
+    outline: none; 
+    width: 576px;
+    height: 80px;
+    padding: 10px;
+    font-size: 20px; 
+    padding-left: 40px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: crazyBackgroundPulse 3s infinite;
 }
-.todo-add-btn{
+
+.todo-input:focus {
+    box-shadow: 0 0 50px rgba(255, 103, 57, 0.8);
+    border-color: #ff6739;
+}
+
+.todo-add-btn {
     border-radius: 50px;
     background: #ff6739;
     width: 187px;
@@ -61,6 +101,20 @@
     font-size: 26px;
     font-weight: 600;
     cursor: pointer;
-    border-radius: 100px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: crazyBackgroundPulse 3s infinite;
+}
 
+.todo-add-btn:hover {
+    transform: scale(1.2) rotate(-10deg);
+    background-color: #ff5733;
+}
+
+.todo-item {
+    animation: crazyFadeIn 1s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.todo-list {
+    animation: crazyBackgroundPulse 4s infinite;
 }
